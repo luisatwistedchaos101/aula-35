@@ -11,12 +11,12 @@ class UsuarioDonoController {
       if (usuariosDono.length > 0) {
         res.status(200).json(usuariosDono);
       } else {
-        res.status(404).json({ mensagem: "Nenhum vídeo encontrado" });
+        res.status(404).json({ mensagem: "Nenhum usuário encontrado" });
       }
     } catch (erro) {
       res
         .status(500)
-        .json({ mensagem: "Erro ao buscar vídeos", detalhes: erro.message });
+        .json({ mensagem: "Erro ao buscar usuários", detalhes: erro.message });
     }
   }
 

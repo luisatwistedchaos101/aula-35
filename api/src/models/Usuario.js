@@ -6,7 +6,7 @@ class Usuario {
     this.nome = nome;
     this.imagem = imagem;
     this.email = email;
-    // Verifica se o papel é válido (dentro do enum)
+    
     if (!Object.values(UsuarioPapel).includes(papel)) {
       throw new Error(`Papel inválido: ${papel}`);
     }

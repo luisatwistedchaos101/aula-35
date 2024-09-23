@@ -1,5 +1,5 @@
-const UsuarioDono = require("../models/UsuarioDono");
 const { usuarios } = require("../mock/dados.json");
+const UsuarioInscrito = require("../models/UsuarioInscrito");
 
 const usuariosInscritos = usuarios.filter(
   (usuario) => usuario.papel === "usuarioInscritos"
@@ -11,12 +11,12 @@ class usuarioInscritoController {
       if (usuariosInscritos.length > 0) {
         res.status(200).json(usuariosInscritos);
       } else {
-        res.status(404).json({ mensagem: "Nenhum vídeo encontrado" });
+        res.status(404).json({ mensagem: "Nenhum usuário encontrado" });
       }
     } catch (erro) {
       res
         .status(500)
-        .json({ mensagem: "Erro ao buscar vídeos", detalhes: erro.message });
+        .json({ mensagem: "Erro ao buscar usuário", detalhes: erro.message });
     }
   }
 
@@ -49,7 +49,7 @@ class usuarioInscritoController {
         return id;
       };
 
-      const novoUsuario = new UsuarioDono(
+      const novoUsuario = new UsuarioInscrito(
         gerarIdUnico(),
         nome,
         imagem,
@@ -61,7 +61,7 @@ class usuarioInscritoController {
     } catch (erro) {
       res
         .status(500)
-        .json({ mensagem: "Erro ao criar vídeo", detalhes: erro.message });
+        .json({ mensagem: "Erro ao criar usuario", detalhes: erro.message });
     }
   }
 
@@ -72,7 +72,7 @@ class usuarioInscritoController {
       const usuario = usuariosInscritos.find((v) => v.id === id);
 
       if (!usuario) {
-        return res.status(404).json({ mensagem: "Vídeo não encontrado" });
+        return res.status(404).json({ mensagem: "Usuário não encontrado" });
       }
 
       usuario.nome = nome;
@@ -83,7 +83,7 @@ class usuarioInscritoController {
     } catch (erro) {
       res
         .status(500)
-        .json({ mensagem: "Erro ao editar vídeo", detalhes: erro.message });
+        .json({ mensagem: "Erro ao editar usuário", detalhes: erro.message });
     }
   }
 

@@ -1,16 +1,16 @@
 const express = require("express");
-const videosController = require("../controllers/videosController");
+const usuarioInscritoController = require("../controllers/usuarioInscritoController");
 
 const router = express.Router();
 
-router.get("/", videosController.index);
+router.get("/", usuarioInscritoController.index);
 
-router.get("/:id", videosController.show);
+router.get("/:id", usuarioInscritoController.show);
 
-router.post("/", videosController.store);
+router.post("/", usuarioInscritoController.store);
 
-router.put("/:id", videosController.update);
+router.put("/:id", usuarioInscritoController.update);
 
-router.delete("/:id", videosController.delete);
+router.delete("/:id", usuarioInscritoController.delete);
 
 module.exports = router;

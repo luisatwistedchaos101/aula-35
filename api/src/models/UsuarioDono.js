@@ -1,9 +1,10 @@
 const { Usuario } = require("./Usuario");
+const UsuarioPapel = require("./UsuarioPapel");
 
 class UsuarioDono extends Usuario {
-  constructor(id, nome, imagem, email, papel) {
-    super(id, nome, imagem, email, papel.USUARIO_DONO);
-    this.videos = []; // O dono do canal pode gerenciar seus vídeos
+  constructor(id, nome, imagem, email) {
+    super(id, nome, imagem, email, UsuarioPapel.USUARIO_DONO);
+    this.videos = [];
   }
 
   // Adicionar um novo vídeo

@@ -1,10 +1,11 @@
 // models/UsuarioInscrito.js
 const { Usuario } = require("./Usuario");
+const UsuarioPapel = require("./UsuarioPapel");
 
 class UsuarioInscrito extends Usuario {
-  constructor(id, nome, imagem, email, papel) {
-    super(id, nome, imagem, email, papel.USUARIO_INSCRITO);
-    this.canaisInscritos = []; // Adiciona uma propriedade para armazenar os canais
+  constructor(id, nome, imagem, email) {
+    super(id, nome, imagem, email, UsuarioPapel.USUARIO_INSCRITO);
+    this.canaisInscritos = [];
   }
 
   inscreverSeNoCanal(idCanal) {

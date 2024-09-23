@@ -27,7 +27,7 @@ class UsuarioDono extends Usuario {
     // Lógica
   }
 
-  // Exemplo: Gerenciar inscritos no canal
+  //Gerenciar inscritos no canal
   listarInscritos(inscritos) {
     // Lógica
   }

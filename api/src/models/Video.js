@@ -11,15 +11,16 @@ class Video {
     this.canalID = canalID;
   }
 
-  encontrarTodos() {}
-  
-  buscarPeloId(id) {}
+adicionarView() {
+this.quantidadeViews = this.quantidadeViews += 1
+}
+exibirInformacoes(){
+  return this.quantidadeViews;
+}
 
-  adicionar() {}
-  
-  atualizar(id, videoAtualizado) {}
-
-  excluir(id) {}
+buscarCanal(){
+  return this.canalID
+}
 }
 
 module.exports = Video;

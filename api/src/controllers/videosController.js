@@ -1,7 +1,5 @@
 const { videos } = require("../mock/dados.json");
-
 const Video = require("../models/Video");
-
 class videosController {
   index(req, res) {
     try {
@@ -36,21 +34,11 @@ class videosController {
 
   store(req, res) {
     try {
-      const { titulo, descricao, quantidadeViews, image, canalID } = req.body;
+      const { titulo, descricao, image, canalID } = req.body;
 
-      const gerarIdUnico = () => {
-        let id;
-        do {
-          id = Math.floor(Math.random() * 1000);
-        } while (videos.some((v) => v.id === id));
-        return id;
-      };
-
-      const novoVideo = new Video(
-        gerarIdUnico(),
+      const novoVideo = new Video (
         titulo,
         descricao,
-        quantidadeViews,
         image,
         canalID
       );

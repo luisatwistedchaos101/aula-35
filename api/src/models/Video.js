@@ -1,27 +1,25 @@
+const gerarIdUnico = require("../utils/gerarIdUnico");
+const dados = require("../mock/dados.json");
+
 class Video {
-  constructor(id, titulo, descricao, quantidadeViews, image, canalID) {
-    this.id = id;
+  constructor(titulo, descricao, image, canalID) {
+    this.id = gerarIdUnico(dados.videos);
     this.titulo = titulo;
     this.descricao = descricao;
-    this.quantidadeViews = quantidadeViews;
+    this.quantidadeViews = 0;
     this.image = image;
     this.canalID = canalID;
   }
 
-  // Método para exibir informações do vídeo
-  exibirInformacoes() {
-    // Lógica
-  }
+  encontrarTodos() {}
+  
+  buscarPeloId(id) {}
 
-  // Método para adicionar uma visualização
-  adicionarView() {
-    // Lógica
-  }
+  adicionar() {}
+  
+  atualizar(id, videoAtualizado) {}
 
-  // Buscar dono desse vídeo
-  buscarCanal() {
-    // Lógica
-  }
+  excluir(id) {}
 }
 
-module.exports = { Video };
+module.exports = Video;

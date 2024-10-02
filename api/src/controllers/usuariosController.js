@@ -1,5 +1,5 @@
 const { usuarios } = require("../mock/dados.json");
-const Usuario = require("../models/Usuario");
+const { Usuario } = require("../models/Usuario");
 
 /*
 const usuarios = usuarios.filter(
@@ -7,7 +7,7 @@ const usuarios = usuarios.filter(
 );
 */
 
-class usuariosController {
+class UsuariosController {
   index(req, res) {
     try {
       if (usuarios.length > 0) {
@@ -41,21 +41,13 @@ class usuariosController {
 
   store(req, res) {
     try {
-      const { nome, imagem, email } = req.body;
+      const { nome, imagem, email, papel } = req.body;
 
-      const gerarIdUnico = () => {
-        let id;
-        do {
-          id = Math.floor(Math.random() * 1000);
-        } while (usuarios.some((v) => v.id === id));
-        return id;
-      };
-
-      const novoUsuario = new Usuario(
-        gerarIdUnico(),
+      const novoUsuario = new Usuario (
         nome,
         imagem,
-        email
+        email,
+        papel
       );
 
       usuarios.push(novoUsuario);
@@ -111,4 +103,4 @@ class usuariosController {
   }
 }
 
-module.exports = new usuariosController();
+module.exports = new UsuariosController();

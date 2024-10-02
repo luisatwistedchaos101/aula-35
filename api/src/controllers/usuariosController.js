@@ -1,5 +1,6 @@
 const { usuarios } = require("../mock/dados.json");
 const { Usuario } = require("../models/Usuario");
+const UsuarioPapel = require("../models/UsuarioPapel");
 
 /*
 const usuarios = usuarios.filter(
@@ -43,12 +44,15 @@ class UsuariosController {
     try {
       const { nome, imagem, email, papel } = req.body;
 
-      const novoUsuario = new Usuario (
-        nome,
-        imagem,
-        email,
-        papel
-      );
+      const novoUsuario = new Usuario(nome, imagem, email, papel);
+
+      if (!papel) {
+        throw new Error("O papel tem que ser passado!");
+      }
+
+      if (!Object.values(UsuarioPapel).includes(papel)) {
+        throw new Error(`Papel inválido: ${papel}`);
+      }
 
       usuarios.push(novoUsuario);
       res.status(201).json(novoUsuario);

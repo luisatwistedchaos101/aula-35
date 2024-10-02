@@ -6,15 +6,28 @@ class Usuario {
     this.nome = nome;
     this.imagem = imagem;
     this.email = email;
-    
+    this.papel = this.verificarPapel(papel);
+    this.inscricoes = [];
+  }
+
+  verificarPapel(papel) {
     if (!Object.values(UsuarioPapel).includes(papel)) {
       throw new Error(`Papel inválido: ${papel}`);
+    } else {
+      return papel;
     }
-    this.papel = papel;
   }
 
   pegarPapel() {
     return this.papel;
+  }
+
+  listarInscricoes() {
+    return this.inscricoes;
+  }
+
+  inscreverSeNoCanal(idCanal) {
+    this.inscricoes.push(parseInt(idCanal));
   }
 }
 

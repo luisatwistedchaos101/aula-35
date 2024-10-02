@@ -1,15 +1,17 @@
 const { usuarios } = require("../mock/dados.json");
-const UsuarioInscrito = require("../models/UsuarioInscrito");
+const Usuario = require("../models/Usuario");
 
-const usuariosInscritos = usuarios.filter(
+/*
+const usuarios = usuarios.filter(
   (usuario) => usuario.papel === "usuarioInscritos"
 );
+*/
 
-class usuarioInscritoController {
+class usuariosController {
   index(req, res) {
     try {
-      if (usuariosInscritos.length > 0) {
-        res.status(200).json(usuariosInscritos);
+      if (usuarios.length > 0) {
+        res.status(200).json(usuarios);
       } else {
         res.status(404).json({ mensagem: "Nenhum usuário encontrado" });
       }
@@ -23,7 +25,7 @@ class usuarioInscritoController {
   show(req, res) {
     try {
       const id = parseInt(req.params.id);
-      const usuario = usuariosInscritos.find((v) => v.id === id);
+      const usuario = usuarios.find((v) => v.id === id);
 
       if (usuario) {
         res.status(200).json(usuario);
@@ -45,18 +47,18 @@ class usuarioInscritoController {
         let id;
         do {
           id = Math.floor(Math.random() * 1000);
-        } while (usuariosInscritos.some((v) => v.id === id));
+        } while (usuarios.some((v) => v.id === id));
         return id;
       };
 
-      const novoUsuario = new UsuarioInscrito(
+      const novoUsuario = new Usuario(
         gerarIdUnico(),
         nome,
         imagem,
         email
       );
 
-      usuariosInscritos.push(novoUsuario);
+      usuarios.push(novoUsuario);
       res.status(201).json(novoUsuario);
     } catch (erro) {
       res
@@ -69,7 +71,7 @@ class usuarioInscritoController {
     try {
       const { nome, imagem, email } = req.body;
       const id = parseInt(req.params.id);
-      const usuario = usuariosInscritos.find((v) => v.id === id);
+      const usuario = usuarios.find((v) => v.id === id);
 
       if (!usuario) {
         return res.status(404).json({ mensagem: "Usuário não encontrado" });
@@ -90,10 +92,10 @@ class usuarioInscritoController {
   delete(req, res) {
     try {
       const id = parseInt(req.params.id);
-      const indiceDoUsuario = usuariosInscritos.findIndex((v) => v.id === id);
+      const indiceDoUsuario = usuarios.findIndex((v) => v.id === id);
 
       if (indiceDoUsuario !== -1) {
-        const usuarioRemovido = usuariosInscritos.splice(indiceDoUsuario, 1);
+        const usuarioRemovido = usuarios.splice(indiceDoUsuario, 1);
         res.status(200).json({
           mensagem: `Usuário id:${id} removido com sucesso!`,
           usuarioRemovido
@@ -109,4 +111,4 @@ class usuarioInscritoController {
   }
 }
 
-module.exports = new usuarioInscritoController();
+module.exports = new usuariosController();

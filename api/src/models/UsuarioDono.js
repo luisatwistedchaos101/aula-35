@@ -8,29 +8,24 @@ class UsuarioDono extends Usuario {
   }
 
   // Adicionar um novo vídeo
-  adicionarVideo(video) {
-    // Lógica
-  }
-
-  // Remover um vídeo por ID
-  removerVideo(idVideo) {
+  postarVideo(video) {
     // Lógica
   }
 
   // Editar um vídeo por ID
-  editarVideo(idVideo, novoTitulo, novaDescricao) {
+  editarVideo(idVideo, corpo) {
     // Lógica
   }
 
-  // Listar todos os vídeos do canal
-  listarVideos() {
+  // Remover um vídeo por ID
+  excluirVideo(idVideo) {
     // Lógica
   }
 
   //Gerenciar inscritos no canal
-  listarInscritos(inscritos) {
+  listarInscritos() {
     // Lógica
   }
 }
 
-module.exports = UsuarioDono;
+module.exports = { UsuarioDono };

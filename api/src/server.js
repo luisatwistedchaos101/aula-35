@@ -4,7 +4,7 @@ const servidor = express();
 const rotas = require("./utils/rotas.json")
 
 const videosRoutes = require("./routes/videosRoutes");
-const usuarioInscritoRoutes = require("./routes/usuarioInscritoRoutes");
+const usuariosRoutes = require("./routes/usuariosRoutes");
 const usuarioDonoRoutes = require("./routes/usuarioDonoRoutes");
 
 // Middleware para permitir requisições JSON
@@ -13,7 +13,7 @@ servidor.use(express.json());
 // Usando as rotas
 servidor.use("/videos", videosRoutes);
 servidor.use("/usuarioDono", usuarioDonoRoutes);
-servidor.use("/usuarioInscrito", usuarioInscritoRoutes);
+servidor.use("/usuarios", usuariosRoutes);
 
 servidor.get("/", (req, res) => res.json(rotas));
 

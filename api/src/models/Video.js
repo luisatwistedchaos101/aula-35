@@ -9,7 +9,7 @@ class Video {
   }
 
   // Método para exibir informações do vídeo
-  exibirInfo() {
+  exibirInformacoes() {
     // Lógica
   }
 
@@ -17,6 +17,11 @@ class Video {
   adicionarView() {
     // Lógica
   }
+
+  // Buscar dono desse vídeo
+  buscarCanal() {
+    // Lógica
+  }
 }
 
-module.exports = Video;
+module.exports = { Video };

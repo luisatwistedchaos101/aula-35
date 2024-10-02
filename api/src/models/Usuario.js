@@ -1,8 +1,8 @@
-const UsuarioPapel = require("./UsuarioPapel");
-
+const gerarIdUnico = require("../utils/gerarIdUnico");
+const { usuarios } = require("../mock/dados.json");
 class Usuario {
-  constructor(id, nome, imagem, email, papel) {
-    this.id = id;
+  constructor(nome, imagem, email, papel) {
+    this.id = gerarIdUnico(usuarios);
     this.nome = nome;
     this.imagem = imagem;
     this.email = email;

@@ -1,7 +1,7 @@
 const { Usuario } = require("./Usuario");
 const UsuarioPapel = require("./UsuarioPapel");
 
-class UsuarioDono extends Usuario {
+class Canal extends Usuario {
   constructor(id, nome, imagem, email) {
     super(id, nome, imagem, email, UsuarioPapel.USUARIO_DONO);
     this.videos = [];
@@ -28,4 +28,4 @@ class UsuarioDono extends Usuario {
   }
 }
 
-module.exports = { UsuarioDono };
+module.exports = { Canal };

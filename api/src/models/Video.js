@@ -1,9 +1,9 @@
 const gerarIdUnico = require("../utils/gerarIdUnico");
-const dados = require("../mock/dados.json");
+const { videos } = require("../mock/dados.json");
 
 class Video {
   constructor(titulo, descricao, image, canalID) {
-    this.id = gerarIdUnico(dados.videos);
+    this.id = gerarIdUnico(videos);
     this.titulo = titulo;
     this.descricao = descricao;
     this.quantidadeViews = 0;
